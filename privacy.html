@@ -44,10 +44,10 @@ a { color: inherit; text-decoration: none; }
   max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px);
   display: flex; align-items: center;
 }
-.nav-mark { display: flex; align-items: center; gap: 8px; }
+.nav-mark { display: flex; align-items: center; gap: 8px; flex-shrink: 0; white-space: nowrap; }
 .nav-brand { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
 .nav-brand-health { font-weight: 500; color: var(--green); }
-.nav-right { margin-left: auto; }
+.nav-right { margin-left: auto; flex-shrink: 0; }
 .nav-cta {
   font-family: var(--sans); font-size: 14px; font-weight: 600;
   color: #fff; background: var(--green); padding: 10px 22px;
@@ -102,6 +102,9 @@ a { color: inherit; text-decoration: none; }
 .foot-copy { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.02em; }
 
 @media (max-width: 600px) {
+  .nav-inner { padding: 0 16px !important; }
+  .nav-brand { font-size: 15px; }
+  .nav-cta { font-size: 13px; padding: 8px 16px; }
   .legal h1 { font-size: 24px; }
   .foot-top { flex-direction: column; gap: 24px; }
 }
