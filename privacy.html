@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — TrueSignal Health</title>
+<meta name="description" content="How TrueSignal Health accesses, uses, and protects healthcare operating data. No PHI collected.">
+<meta property="og:title" content="Privacy Policy — TrueSignal Health">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #2E7D56;
+  --green-hover: #256A49;
+  --white: #ffffff;
+  --off-white: #fafaf8;
+  --warm-1: #f4f3f0;
+  --warm-2: #e8e7e3;
+  --border: #d5d3ce;
+  --text: #1a1d21;
+  --text-2: #5a5e66;
+  --text-3: #8a8e96;
+  --near-black: #0c0e10;
+  --sans: 'Instrument Sans', -apple-system, system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--off-white); color: var(--text); line-height: 1.65; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 64px; display: flex; align-items: center;
+  background: rgba(250,250,248,0.92); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(228,227,222,0.6); box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+.nav-inner {
+  max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px);
+  display: flex; align-items: center;
+}
+.nav-mark { display: flex; align-items: center; gap: 8px; }
+.nav-brand { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+.nav-brand-health { font-weight: 500; color: var(--green); }
+.nav-right { margin-left: auto; }
+.nav-cta {
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  color: #fff; background: var(--green); padding: 10px 22px;
+  border-radius: 8px; transition: all 0.2s; cursor: pointer; border: none;
+}
+.nav-cta:hover { background: var(--green-hover); }
+
+/* LEGAL */
+.legal {
+  max-width: 800px; margin: 0 auto; padding: 120px 24px 80px;
+}
+.legal h1 {
+  font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.legal-date {
+  font-family: var(--mono); font-size: 12px; color: var(--text-3); margin-bottom: 40px;
+}
+.legal-intro {
+  font-size: 16px; color: var(--text-2); margin-bottom: 40px;
+}
+.legal h2 {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
+  margin-top: 40px; margin-bottom: 12px; padding-top: 24px;
+  border-top: 1px solid var(--warm-2);
+}
+.legal h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.legal p { font-size: 15px; color: var(--text-2); margin-bottom: 16px; }
+.legal strong { color: var(--text); font-weight: 600; }
+.legal a { color: var(--green); }
+.legal a:hover { text-decoration: underline; }
+.legal ul { list-style: none; margin-bottom: 16px; padding-left: 0; }
+.legal li {
+  font-size: 15px; color: var(--text-2); padding-left: 16px;
+  position: relative; margin-bottom: 8px;
+}
+.legal li::before {
+  content: '\b7'; position: absolute; left: 0; color: var(--text-3); font-weight: 700;
+}
+
+/* FOOTER */
+.foot { background: var(--near-black); padding: 48px 0 36px; }
+.foot-inner { max-width: 1120px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+.foot-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.foot-brand-mark { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.foot-brand-name { font-size: 15px; font-weight: 700; color: #fff; }
+.foot-brand-health { font-weight: 500; color: var(--green); }
+.foot-tagline { font-size: 13px; color: rgba(255,255,255,0.35); }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-size: 13px; color: rgba(255,255,255,0.45); transition: color 0.15s; }
+.foot-links a:hover { color: rgba(255,255,255,0.7); }
+.foot-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 28px 0 20px; }
+.foot-copy { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.02em; }
+
+@media (max-width: 600px) {
+  .legal h1 { font-size: 24px; }
+  .foot-top { flex-direction: column; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .legal { padding: 96px 16px 60px; }
+  .legal p, .legal li { font-size: 16px; line-height: 1.75; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-mark">
+      <div style="width:24px;height:24px;border-radius:6px;background:#2E7D56;display:flex;align-items:center;justify-content:center">
+        <svg width="14" height="14" viewBox="0 0 72 72" fill="none"><path d="M13 37L26 53L57 13" stroke="white" stroke-width="7.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="nav-brand">TrueSignal <span class="nav-brand-health">Health</span></span>
+    </a>
+    <div class="nav-right">
+      <a href="/#contact" class="nav-cta">Request a Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<div class="legal">
+  <h1>Privacy Policy</h1>
+  <div class="legal-date">Last updated: May 15, 2026</div>
+  <p class="legal-intro">TrueSignal Health is designed to surface verified operating data for healthcare organizations without exposing protected health information. This Privacy Policy explains what data we access, how we use it, and the steps we take to protect it.</p>
+
+  <h2>How We Access Your Data</h2>
+  <p>TrueSignal Health connects to your organization's systems (such as EHR platforms, practice management software, credentialing databases, and financial systems) through authenticated, <strong>read-only API connections</strong>. We use industry-standard OAuth protocols. TrueSignal never receives, stores, or handles your system login credentials.</p>
+  <p>Once connected, we access organizational operating data including:</p>
+  <ul>
+    <li>Aggregate patient encounter volumes and case mix distribution</li>
+    <li>Provider credentialing and board certification status</li>
+    <li>Facility accreditation and licensing records</li>
+    <li>Payer mix and reimbursement composition</li>
+    <li>Operational capacity metrics (beds, locations, specialties)</li>
+  </ul>
+
+  <h2>What We Do Not Collect</h2>
+  <p>TrueSignal Health does not collect, process, or store Protected Health Information (PHI) as defined by HIPAA. This includes:</p>
+  <ul>
+    <li>Patient names, addresses, or contact information</li>
+    <li>Individual medical records, diagnoses, or treatment details</li>
+    <li>Insurance policy or claims-level data</li>
+    <li>Social Security numbers or other personal identifiers</li>
+    <li>Individual billing or payment records</li>
+  </ul>
+  <p>All data accessed is aggregate, organizational-level operating data. If PHI is inadvertently encountered through a data connection, it is not used in metric calculations or publication and is handled in accordance with applicable law.</p>
+
+  <h2>How We Use Your Data</h2>
+  <p>The organizational operating data we access is used to:</p>
+  <ul>
+    <li>Compute verified operating metrics (such as patient encounter volumes, provider counts, accreditation status, and case mix distribution)</li>
+    <li>Publish those metrics on your TrustRecord at trustrecord.com</li>
+    <li>Structure your verified data in machine-readable formats for AI and search systems</li>
+    <li>Refresh your metrics on a regular cadence to maintain accuracy</li>
+    <li>Develop and improve TrueSignal's proprietary models for metric accuracy and normalization</li>
+  </ul>
+  <p>We do not sell, rent, or share your organizational data with third parties.</p>
+  <p><strong>Aggregated data.</strong> TrueSignal may retain and use aggregated or anonymized data derived from organizational operating data for analytics, benchmarking, and product improvement, provided such data does not identify your organization.</p>
+
+  <h2>What You Control</h2>
+  <p>You choose which categories of verified metrics appear on your TrustRecord. You may hide specific categories at any time through your dashboard. Hidden metrics are not published, not included in your TrustRecord, and not available to AI systems.</p>
+  <p>You may disconnect your data sources at any time. You may also request that your TrustRecord be unpublished and your data deleted by contacting us.</p>
+
+  <h2>TrustRecords and Public Publication</h2>
+  <p>When you activate your TrustRecord, the metrics you choose to publish become publicly accessible at your TrustRecord URL on trustrecord.com. This data is intentionally structured to be readable by AI systems, search engines, and other automated platforms.</p>
+  <p>Published TrustRecord data includes only the verified metrics you have chosen to display. It never includes raw organizational data, patient information, or financial details.</p>
+
+  <h2>Data Ownership</h2>
+  <ul>
+    <li>You retain full ownership of all data you provide to or make accessible to TrueSignal</li>
+    <li>TrueSignal processes your data only for the purposes stated in this policy</li>
+    <li>You may request deletion of your data at any time</li>
+  </ul>
+  <p>We may retain certain information for a reasonable period where required for legal, accounting, fraud prevention, security, or compliance purposes.</p>
+
+  <h2>Security</h2>
+  <p>We follow industry-standard practices to protect your data:</p>
+  <ul>
+    <li>Encryption in transit (TLS 1.2+) and at rest (AES-256)</li>
+    <li>Read-only API connections. TrueSignal cannot modify your systems.</li>
+    <li>Access controls based on least-privilege principles</li>
+    <li>Continuous monitoring for vulnerabilities</li>
+    <li>Regular reviews of our security protocols</li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <p>TrueSignal uses third-party services for payment processing (Stripe), hosting, and analytics. These providers have their own privacy policies. TrueSignal does not share your organizational operating data with these providers beyond what is necessary for their function.</p>
+
+  <h2>Your Rights</h2>
+  <p>You may:</p>
+  <ul>
+    <li>View, update, or remove your organizational data at any time</li>
+    <li>Control which metrics are publicly visible on your TrustRecord</li>
+    <li>Disconnect your data sources</li>
+    <li>Request deletion of your data and unpublication of your TrustRecord</li>
+    <li>Contact us at <a href="mailto:health@usetruesignal.com">health@usetruesignal.com</a> for any privacy-related requests</li>
+  </ul>
+  <p>Depending on your jurisdiction, you may have additional rights under applicable data protection laws. We will respond to verified requests in accordance with applicable law.</p>
+
+  <h2>Policy Updates</h2>
+  <p>We may update this Privacy Policy as our services evolve. If material changes are made, we will notify you directly via the email address associated with your account.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this Privacy Policy, contact: <a href="mailto:health@usetruesignal.com">health@usetruesignal.com</a></p>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-brand-mark">
+          <div style="width:20px;height:20px;border-radius:5px;background:#2E7D56;display:inline-flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 72 72" fill="none"><path d="M13 37L26 53L57 13" stroke="white" stroke-width="7.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="foot-brand-name">TrueSignal <span class="foot-brand-health">Health</span></span>
+        </div>
+        <div class="foot-tagline">Verified operating records for healthcare.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="foot-divider"></div>
+    <div class="foot-copy">&copy; 2026 TrueSignal, Inc. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
