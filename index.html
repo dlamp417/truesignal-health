@@ -62,7 +62,7 @@ a { color: inherit; text-decoration: none; }
   max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px);
   display: flex; align-items: center;
 }
-.nav-mark { display: flex; align-items: center; gap: 8px; }
+.nav-mark { display: flex; align-items: center; gap: 8px; flex-shrink: 0; white-space: nowrap; }
 .nav-mark-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; }
 .nav-brand {
   font-family: var(--sans); font-size: 17px; font-weight: 700;
@@ -78,7 +78,7 @@ a { color: inherit; text-decoration: none; }
 .nav.scrolled .nav-link { color: var(--text-2); }
 .nav-link:hover { color: rgba(255,255,255,0.95); }
 .nav.scrolled .nav-link:hover { color: var(--text); }
-.nav-right { margin-left: auto; }
+.nav-right { margin-left: auto; flex-shrink: 0; }
 .nav-cta {
   font-family: var(--sans); font-size: 14px; font-weight: 600;
   color: #fff; background: var(--green); padding: 10px 22px;
@@ -499,6 +499,9 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 @media (max-width: 600px) {
   .container, .foot-inner { padding-left: 20px !important; padding-right: 20px !important; }
+  .nav-inner { padding: 0 16px !important; }
+  .nav-brand { font-size: 15px; }
+  .nav-cta { font-size: 13px; padding: 8px 16px; }
   .hero { padding: 120px 0 0; }
   .hero h1 { font-size: 30px; }
   .sec { padding: 64px 0; }
@@ -908,13 +911,6 @@ textarea.form-input { resize: vertical; min-height: 80px; }
             <div class="vert-sub">Assisted living, memory care, skilled nursing, rehabilitation centers, continuing care retirement communities.</div>
           </div>
         </a>
-        <a class="vert-card" href="/veterinary">
-          <span class="vert-badge">Active</span>
-          <div>
-            <div class="vert-title">Veterinary</div>
-            <div class="vert-sub">General practice, emergency &amp; critical care, specialty referral, mobile, and multi-location animal hospitals.</div>
-          </div>
-        </a>
       </div>
     </div>
   </div>
@@ -1114,7 +1110,6 @@ textarea.form-input { resize: vertical; min-height: 80px; }
                 <option value="dental">Dental Practice</option>
                 <option value="medspa">Med Spa / Aesthetics</option>
                 <option value="senior-living">Senior Living / Rehab</option>
-                <option value="veterinary">Veterinary</option>
                 <option value="other">Other</option>
               </select>
               <div class="form-error-msg" id="orgTypeError">Required</div>
