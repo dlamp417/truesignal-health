@@ -1346,5 +1346,39 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 </script>
 
+<!-- ═══ TALK TO OUR TEAM WIDGET ═══ -->
+<style>
+.talk-pill {
+  position: fixed; right: 24px; bottom: 24px; z-index: 1500;
+  display: flex; align-items: center; gap: 10px;
+  background: #0C0E10; color: #fff; border: 0; cursor: pointer;
+  padding: 13px 18px 13px 15px; border-radius: 999px;
+  box-shadow: 0 18px 50px -12px rgba(12,14,16,.28), 0 4px 12px -6px rgba(12,14,16,.14);
+  font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.talk-pill:hover { transform: translateY(-1px); box-shadow: 0 22px 60px -12px rgba(12,14,16,.35), 0 6px 16px -6px rgba(12,14,16,.18); }
+.talk-pill:active { transform: translateY(0); }
+.talk-dot {
+  width: 9px; height: 9px; border-radius: 50%; flex: none;
+  background: #f5a623;
+  animation: talk-pulse 2.4s ease-out infinite;
+}
+.talk-pill .talk-chev { opacity: 0.55; margin-left: 2px; display: flex; }
+@keyframes talk-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245,166,35,.5); }
+  70% { box-shadow: 0 0 0 7px rgba(245,166,35,0); }
+  100% { box-shadow: 0 0 0 0 rgba(245,166,35,0); }
+}
+@media (max-width: 520px) {
+  .talk-pill { right: 16px; bottom: 16px; font-size: 14px; padding: 11px 16px 11px 13px; }
+}
+</style>
+<button class="talk-pill" onclick="openModal()" aria-label="Talk to our team">
+  <span class="talk-dot"></span>
+  <span>Talk to our team</span>
+  <span class="talk-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+</button>
+
 </body>
 </html>
