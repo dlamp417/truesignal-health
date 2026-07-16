@@ -603,8 +603,11 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 @media (max-width: 600px) {
   .container, .foot-inner { padding-left: 20px !important; padding-right: 20px !important; }
   .nav-inner { padding: 0 16px !important; }
-  .nav-brand { font-size: 15px; }
+  .nav-mark svg { height: 22px; }
+  .nav-brand-health { font-size: 14px; }
   .nav-cta { font-size: 13px; padding: 8px 16px; }
+  .nav-cta .cta-full { display: none; }
+  .nav-cta .cta-short { display: inline; }
   .hero { padding: 120px 0 0; }
   .hero h1 { font-size: 30px; }
   .sec { padding: 64px 0; }
@@ -630,7 +633,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
       <a class="nav-link" href="#verticals">Who We Serve</a>
       <a class="nav-link" href="#faq">FAQ</a>
     </div>
-    <div class="nav-right"><button class="nav-cta" onclick="openModal()">Request Consultation &rarr;</button></div>
+    <div class="nav-right"><button class="nav-cta" onclick="openModal()"><span class="cta-full">Request Consultation &rarr;</span><span class="cta-short" style="display:none">Consult &rarr;</span></button></div>
   </div>
 </nav>
 
