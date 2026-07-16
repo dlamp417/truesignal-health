@@ -215,7 +215,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-text { padding-top: 20px; }
 .hero h1 {
-  font-family: var(--sans); font-size: clamp(36px, 5vw, 56px); font-weight: 700;
+  font-family: var(--sans); font-size: clamp(34px, 4.5vw, 50px); font-weight: 700;
   line-height: 1.05; letter-spacing: -0.03em; color: #fff;
   margin-bottom: 24px;
 }
@@ -1347,38 +1347,236 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 </script>
 
 <!-- ═══ TALK TO OUR TEAM WIDGET ═══ -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <style>
-.talk-pill {
-  position: fixed; right: 24px; bottom: 24px; z-index: 1500;
+#ts-contact {
+  --tcw-ink: #0C0E10;
+  --tcw-green: #1e8a5a;
+  --tcw-green-deep: #166b46;
+  --tcw-line: rgba(12,14,16,.10);
+  --tcw-mut: rgba(12,14,16,.55);
+  --tcw-shadow: 0 18px 50px -12px rgba(12,14,16,.28), 0 4px 12px -6px rgba(12,14,16,.14);
+  position: fixed; right: 24px; bottom: 24px; z-index: 2147483000;
+  font-family: var(--sans);
+}
+#ts-contact * { transition: transform .18s cubic-bezier(.2,.7,.3,1), opacity .18s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease; }
+
+/* Trigger pill */
+.ts-cw-trigger {
   display: flex; align-items: center; gap: 10px;
-  background: #0C0E10; color: #fff; border: 0; cursor: pointer;
-  padding: 13px 18px 13px 15px; border-radius: 999px;
-  box-shadow: 0 18px 50px -12px rgba(12,14,16,.28), 0 4px 12px -6px rgba(12,14,16,.14);
-  font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  background: var(--tcw-ink); color: #fff; border: 0; cursor: pointer;
+  padding: 13px 18px 13px 15px; border-radius: 999px; box-shadow: var(--tcw-shadow);
+  font-size: 15px; font-weight: 600; letter-spacing: -.01em; font-family: inherit;
 }
-.talk-pill:hover { transform: translateY(-1px); box-shadow: 0 22px 60px -12px rgba(12,14,16,.35), 0 6px 16px -6px rgba(12,14,16,.18); }
-.talk-pill:active { transform: translateY(0); }
-.talk-dot {
-  width: 9px; height: 9px; border-radius: 50%; flex: none;
-  background: #f5a623;
-  animation: talk-pulse 2.4s ease-out infinite;
+.ts-cw-trigger:hover { transform: translateY(-1px); }
+.ts-cw-trigger:active { transform: translateY(0); }
+.ts-cw-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.ts-cw-dot.online { background: #3ddc84; animation: tcw-pulse-green 2.4s ease-out infinite; }
+.ts-cw-dot.away { background: #f5a623; animation: tcw-pulse-amber 2.4s ease-out infinite; }
+@keyframes tcw-pulse-green { 0%{box-shadow:0 0 0 0 rgba(61,220,132,.5)}70%{box-shadow:0 0 0 7px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)} }
+@keyframes tcw-pulse-amber { 0%{box-shadow:0 0 0 0 rgba(245,166,35,.5)}70%{box-shadow:0 0 0 7px rgba(245,166,35,0)}100%{box-shadow:0 0 0 0 rgba(245,166,35,0)} }
+.ts-cw-chev { opacity: .55; margin-left: 2px; display: flex; }
+
+/* Panel */
+.ts-cw-panel {
+  position: absolute; right: 0; bottom: 0; width: 328px; max-width: calc(100vw - 32px);
+  background: #fff; border-radius: 20px; box-shadow: var(--tcw-shadow);
+  overflow: hidden; transform-origin: bottom right;
+  opacity: 0; transform: translateY(10px) scale(.98); pointer-events: none;
 }
-.talk-pill .talk-chev { opacity: 0.55; margin-left: 2px; display: flex; }
-@keyframes talk-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(245,166,35,.5); }
-  70% { box-shadow: 0 0 0 7px rgba(245,166,35,0); }
-  100% { box-shadow: 0 0 0 0 rgba(245,166,35,0); }
+.ts-cw-panel.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+/* Header */
+.ts-cw-head { padding: 20px 20px 16px; border-bottom: 1px solid var(--tcw-line); position: relative; }
+.ts-cw-avatars { display: flex; margin-bottom: 14px; }
+.ts-cw-av {
+  width: 34px; height: 34px; border-radius: 50%; margin-left: -9px; border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: #fff;
 }
+.ts-cw-av:first-child { margin-left: 0; }
+.ts-cw-av.a { background: #1e8a5a; }
+.ts-cw-av.b { background: #2f6f8f; }
+.ts-cw-av.c { background: #8a5a1e; }
+.ts-cw-title { font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 5px; color: var(--tcw-ink); }
+.ts-cw-sub { font-size: 14px; line-height: 1.45; color: var(--tcw-mut); margin: 0; }
+.ts-cw-status {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .01em;
+  display: flex; align-items: center; gap: 7px; margin-top: 14px; color: var(--tcw-green);
+}
+.ts-cw-dot-sm { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.ts-cw-dot-sm.online { background: #3ddc84; }
+.ts-cw-dot-sm.away { background: #f5a623; }
+.ts-cw-status.away-status { color: #b8860b; }
+.ts-cw-close {
+  position: absolute; top: 16px; right: 14px; width: 30px; height: 30px;
+  border: 0; background: transparent; border-radius: 8px; cursor: pointer;
+  color: var(--tcw-mut); display: flex; align-items: center; justify-content: center;
+}
+.ts-cw-close:hover { background: rgba(12,14,16,.05); color: var(--tcw-ink); }
+
+/* Action rows */
+.ts-cw-actions { padding: 8px; }
+.ts-cw-row {
+  display: flex; align-items: center; gap: 13px; width: 100%; text-align: left;
+  padding: 11px 12px; border-radius: 12px; border: 0; background: transparent; cursor: pointer;
+  color: var(--tcw-ink); font-family: inherit; text-decoration: none;
+}
+.ts-cw-row:hover { background: rgba(30,138,90,.07); }
+.ts-cw-ic {
+  width: 38px; height: 38px; border-radius: 11px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(12,14,16,.05); color: var(--tcw-ink);
+}
+.ts-cw-row:hover .ts-cw-ic { background: var(--tcw-green); color: #fff; }
+.ts-cw-rt { flex: 1; min-width: 0; }
+.ts-cw-rl { font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.ts-cw-rs { font-size: 12.5px; color: var(--tcw-mut); margin-top: 1px; }
+.ts-cw-arw { color: var(--tcw-mut); opacity: 0; transform: translateX(-3px); display: flex; }
+.ts-cw-row:hover .ts-cw-arw { opacity: 1; transform: translateX(0); }
+
+/* Focus */
+#ts-contact button:focus-visible, #ts-contact a:focus-visible { outline: 2px solid var(--tcw-green); outline-offset: 2px; }
+
+/* Mobile */
 @media (max-width: 520px) {
-  .talk-pill { right: 16px; bottom: 16px; font-size: 14px; padding: 11px 16px 11px 13px; }
+  #ts-contact { right: 16px; bottom: 16px; left: 16px; }
+  .ts-cw-panel { width: auto; left: 0; right: 0; max-width: none; }
+  .ts-cw-trigger { margin-left: auto; }
 }
 </style>
-<button class="talk-pill" onclick="openModal()" aria-label="Talk to our team">
-  <span class="talk-dot"></span>
-  <span>Talk to our team</span>
-  <span class="talk-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
-</button>
+
+<div id="ts-contact">
+  <button class="ts-cw-trigger" type="button" aria-expanded="false" aria-controls="ts-cw-panel" aria-label="Talk to our team" onclick="tcwOpen()">
+    <span class="ts-cw-dot away" id="tcwDot"></span>
+    <span>Talk to our team</span>
+    <span class="ts-cw-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </button>
+
+  <div id="ts-cw-panel" class="ts-cw-panel" role="dialog" aria-label="Contact TrueSignal Health">
+    <div class="ts-cw-head">
+      <div class="ts-cw-avatars" aria-hidden="true">
+        <span class="ts-cw-av a">DL</span>
+        <span class="ts-cw-av b">SH</span>
+        <span class="ts-cw-av c">NR</span>
+      </div>
+      <p class="ts-cw-title">Talk to our team</p>
+      <p class="ts-cw-sub">Real people who know the product. Ask us anything about getting verified.</p>
+      <div class="ts-cw-status" id="tcwStatus">
+        <span class="ts-cw-dot-sm away" id="tcwDotSm"></span>
+        <span id="tcwStatusText">Away — we'll reply next business day</span>
+      </div>
+      <button class="ts-cw-close" type="button" aria-label="Close" onclick="tcwClose()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="ts-cw-actions">
+      <button class="ts-cw-row" type="button" onclick="tcwCalendly()">
+        <span class="ts-cw-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+        <span class="ts-cw-rt">
+          <div class="ts-cw-rl">Book a 15-min call</div>
+          <div class="ts-cw-rs">Pick a time that works for you</div>
+        </span>
+        <span class="ts-cw-arw"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <a class="ts-cw-row" href="tel:+18888048932">
+        <span class="ts-cw-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="ts-cw-rt">
+          <div class="ts-cw-rl">Call us</div>
+          <div class="ts-cw-rs">(888) 804-8932</div>
+        </span>
+        <span class="ts-cw-arw"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="ts-cw-row" href="sms:+18888048932?&body=Hi%20TrueSignal%20Health%20%E2%80%94%20I%20have%20a%20question%20about%20getting%20verified.">
+        <span class="ts-cw-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span class="ts-cw-rt">
+          <div class="ts-cw-rl">Text us</div>
+          <div class="ts-cw-rs">Send a message from your phone</div>
+        </span>
+        <span class="ts-cw-arw"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Contact widget logic
+(function() {
+  var panel = document.getElementById('ts-cw-panel');
+  var trigger = document.querySelector('.ts-cw-trigger');
+  var isOpen = false;
+
+  function checkBusinessHours() {
+    var now = new Date();
+    var fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', hour12: false, weekday: 'short' });
+    var parts = fmt.formatToParts(now);
+    var hour = parseInt((parts.find(function(p){return p.type==='hour'})||{}).value||'0',10);
+    var wd = (parts.find(function(p){return p.type==='weekday'})||{}).value||'';
+    var dayMap = {Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:0};
+    var d = dayMap[wd]; if(d===undefined) d=-1;
+    return [1,2,3,4,5].indexOf(d)!==-1 && hour>=7 && hour<19;
+  }
+
+  function updateStatus() {
+    var online = checkBusinessHours();
+    var dot = document.getElementById('tcwDot');
+    var dotSm = document.getElementById('tcwDotSm');
+    var status = document.getElementById('tcwStatus');
+    var statusText = document.getElementById('tcwStatusText');
+    if(online) {
+      dot.className = 'ts-cw-dot online';
+      dotSm.className = 'ts-cw-dot-sm online';
+      status.className = 'ts-cw-status';
+      statusText.textContent = 'We reply quickly';
+    } else {
+      dot.className = 'ts-cw-dot away';
+      dotSm.className = 'ts-cw-dot-sm away';
+      status.className = 'ts-cw-status away-status';
+      statusText.textContent = "Away \u2014 we\u2019ll reply next business day";
+    }
+  }
+
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  window.tcwOpen = function() {
+    isOpen = true;
+    panel.classList.add('open');
+    trigger.style.opacity = '0';
+    trigger.style.transform = 'scale(.9)';
+    trigger.style.pointerEvents = 'none';
+  };
+
+  window.tcwClose = function() {
+    isOpen = false;
+    panel.classList.remove('open');
+    trigger.style.opacity = '1';
+    trigger.style.transform = 'none';
+    trigger.style.pointerEvents = 'auto';
+    trigger.focus();
+  };
+
+  window.tcwCalendly = function() {
+    tcwClose();
+    setTimeout(function() {
+      if(window.Calendly) {
+        Calendly.initPopupWidget({ url: 'https://calendly.com/dana-lampert/truesignal-intro-call?hide_gdpr_banner=1' });
+      }
+    }, 200);
+  };
+
+  // Escape to close
+  document.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape' && isOpen) tcwClose();
+  });
+
+  // Outside click to close
+  document.addEventListener('mousedown', function(e) {
+    if(isOpen && !document.getElementById('ts-contact').contains(e.target)) tcwClose();
+  });
+})();
+</script>
 
 </body>
 </html>
