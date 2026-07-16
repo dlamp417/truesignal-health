@@ -192,6 +192,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 8px; transition: all 0.2s; cursor: pointer; border: none;
 }
 .nav-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
+.nav-cta .cta-short { display: none; }
 
 /* ═══ HERO ═══ */
 .hero {
@@ -603,8 +604,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 @media (max-width: 600px) {
   .container, .foot-inner { padding-left: 20px !important; padding-right: 20px !important; }
   .nav-inner { padding: 0 16px !important; }
-  .nav-mark svg { height: 22px; }
-  .nav-brand-health { font-size: 14px; }
+  .nav-mark svg { height: 24px; }
+  .nav-brand-health { font-size: 16px; }
   .nav-cta { font-size: 13px; padding: 8px 16px; }
   .nav-cta .cta-full { display: none; }
   .nav-cta .cta-short { display: inline; }
@@ -633,7 +634,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
       <a class="nav-link" href="#verticals">Who We Serve</a>
       <a class="nav-link" href="#faq">FAQ</a>
     </div>
-    <div class="nav-right"><button class="nav-cta" onclick="openModal()"><span class="cta-full">Request Consultation &rarr;</span><span class="cta-short" style="display:none">Consult &rarr;</span></button></div>
+    <div class="nav-right"><button class="nav-cta" onclick="openModal()"><span class="cta-full">Request Consultation &rarr;</span><span class="cta-short">Consult &rarr;</span></button></div>
   </div>
 </nav>
 
