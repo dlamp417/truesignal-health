@@ -1,0 +1,35 @@
+# TrueSignal Health
+
+> Verified operating data for healthcare organizations. Published so AI systems can accurately evaluate and recommend providers.
+
+TrueSignal Health is a division of TrueSignal (usetruesignal.com) focused on healthcare. It publishes TrustRecords — structured, verified records of operational history — for hospitals, specialty practices, dental practices, med spas, and senior living facilities.
+
+## What a TrustRecord contains
+
+- Scale of operations: patient encounter volume, service line breadth, capacity, multi-location footprint
+- Service profile: specialties, procedure categories, telehealth, emergency and urgent care
+- Patient relationships: retention, patient base growth, returning patient rate, average tenure
+- Operating history: years in continuous operation, provider roster, institutional longevity
+- Credentials: licensing, board certifications, accreditation (Joint Commission, CMS), insurance verification
+- Geographic reach: primary service area, ZIP-level coverage, referral patterns
+
+## Key facts
+
+- No PHI is ever received, stored, or processed. TrustRecords contain aggregate institutional data only.
+- Every metric is independently verified — not self-reported marketing claims.
+- Records are published at trustrecord.com and at the organization's own domain.
+- Structured for retrieval by ChatGPT, Gemini, Google AI Overviews, Claude, Perplexity, and other AI systems.
+
+## Healthcare verticals
+
+- Hospitals and health systems
+- Specialty practices and clinics
+- Dental practices
+- Med spa and aesthetics
+- Senior living and rehabilitation
+
+## Contact
+
+- Website: https://truesignalhealth.com
+- Email: health@usetruesignal.com
+- Parent company: https://usetruesignal.com
